@@ -1,7 +1,7 @@
-#include "base/log.h"
-#include "WrapperMsgUndef.h"
-#include "InterpretCommon.h"
-#include "FieldChecker.h"
+#include <msgcc/base/log.h>
+#include <msgcc/WrapperMsgUndef.h>
+#include <msgcc/InterpretCommon.h>
+#include <msgcc/FieldChecker.h>
 
 
 #define FIELD_ERROR_CODE(NAME) ERROR::FIELD_ERROR_BASE(NAME) + errorBase

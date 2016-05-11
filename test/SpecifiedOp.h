@@ -1,7 +1,7 @@
 #ifndef H474FD28A_3CA7_48B2_8D98_D5100C5138D6
 #define H474FD28A_3CA7_48B2_8D98_D5100C5138D6
 
-#include "FieldOpCommon.h"
+#include <msgcc/FieldOpCommon.h>
 
 struct SpecifiedOp
 {

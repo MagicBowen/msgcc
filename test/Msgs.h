@@ -1,7 +1,7 @@
 #ifndef HFC33001A_CA5F_442A_8E49_69371AAF3DF6
 #define HFC33001A_CA5F_442A_8E49_69371AAF3DF6
 
-#include "base/BaseTypes.h"
+#include <msgcc/base/BaseTypes.h>
 
 struct SubMsg1
 {

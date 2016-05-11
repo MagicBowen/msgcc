@@ -1,9 +1,8 @@
 #ifndef HDB79ADB1_E2A2_48CA_9895_910491109581
 #define HDB79ADB1_E2A2_48CA_9895_910491109581
 
-#include "MsgWrapper.h"
-#include "base/static_assert.h"
-#include "base/Event.h"
+#include <msgcc/MsgWrapper.h>
+#include <msgcc/base/static_assert.h>
 
 /////////////////////////////////////////////////////////////
 #define MSG_WRAPPER_BASE(MSG)  MSG##WrapperBase
@@ -17,10 +16,6 @@ struct MSG_WRAPPER_BASE(MSG) : protected MSG                \
         STATIC_ASSERT(sizeof(MSG) == sizeof(TO));           \
                                                             \
         return (const TO&)from;                             \
-    }                                                       \
-    static const TO& getCfg(const Event& event)             \
-    {                                                       \
-        return by(*(MSG*)(event.getMsg()));                 \
     }                                                       \
     const MSG& getRef() const                               \
     {                                                       \

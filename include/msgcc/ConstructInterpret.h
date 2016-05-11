@@ -1,7 +1,7 @@
-#include "WrapperMsgUndef.h"
-#include "MsgWrapper.h"
-#include "FieldCtor.h"
-#include "base/NullPtr.h"
+#include <msgcc/WrapperMsgUndef.h>
+#include <msgcc/MsgWrapper.h>
+#include <msgcc/FieldCtor.h>
+#include <msgcc/base/NullPtr.h>
 
 ///////////////////////////////////////////////////////////////
 #define __def_msg_begin(TYPE)                   \

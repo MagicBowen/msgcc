@@ -1,7 +1,7 @@
 #ifndef HD5DA4832_65CF_4D0F_BABC_D24E856E3B08
 #define HD5DA4832_65CF_4D0F_BABC_D24E856E3B08
 
-#include "base/BaseTypes.h"
+#include <msgcc/base/BaseTypes.h>
 
 ////////////////////////////////////////////////////////////
 #define DECL_CHECK()                \

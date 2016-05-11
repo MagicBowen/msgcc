@@ -1,4 +1,4 @@
-#include "base/ConsoleState.h"
+#include <msgcc/base/ConsoleState.h>
 #include <iostream>
 #include <stdarg.h>
 #include <stdio.h>

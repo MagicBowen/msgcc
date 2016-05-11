@@ -1,7 +1,7 @@
 #ifndef INCL_static_assert_2013725105338_H
 #define INCL_static_assert_2013725105338_H
 
-#include "base/Config.h"
+#include <msgcc/base/Config.h>
 
 #if __SUPPORT_STATIC_ASSERT
 # define STATIC_ASSERT(expr) static_assert(expr, #expr)

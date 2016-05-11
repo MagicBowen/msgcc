@@ -1,6 +1,6 @@
-#include "base/log.h"
-#include "base/BaseTypes.h"
-#include "base/NullPtr.h"
+#include <msgcc/base/log.h>
+#include <msgcc/base/BaseTypes.h>
+#include <msgcc/base/NullPtr.h>
 #include <stdarg.h>
 #include <string.h>
 #include <stdio.h>

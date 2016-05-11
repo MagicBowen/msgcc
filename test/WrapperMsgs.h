@@ -2,16 +2,16 @@
 #define HFC33001A_CA5F_442A_8E49_69371AAF3DF5
 
 #include "Msgs.h"
-#include "ErrorCodeInterpret.h"
+#include <msgcc/ErrorCodeInterpret.h>
 #include "WrapperMsgsMeta.h"
 
-#include "ConstrantInterpret.h"
+#include <msgcc/ConstrantInterpret.h>
 #include "WrapperMsgsMeta.h"
 
-#include "ConstructInterpret.h"
+#include <msgcc/ConstructInterpret.h>
 #include "WrapperMsgsMeta.h"
 
-#include "WrapperMsgDef.h"
+#include <msgcc/WrapperMsgDef.h>
 
 const U8 ERROR_OFFSET = 1;
 

@@ -1,5 +1,5 @@
-#include "WrapperMsgUndef.h"
-#include "InterpretCommon.h"
+#include <msgcc/WrapperMsgUndef.h>
+#include <msgcc/InterpretCommon.h>
 
 ///////////////////////////////////////////////////////////////
 #define __def_msg_begin(TYPE)                       \

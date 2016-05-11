@@ -1,7 +1,7 @@
 #ifndef H463C8A80_396E_4096_958B_C31C6CF4A71B
 #define H463C8A80_396E_4096_958B_C31C6CF4A71B
 
-#include "FieldOpCommon.h"
+#include <msgcc/FieldOpCommon.h>
 
 /////////////////////////////////////////////////////////
 #define FIELD_CHECKER(OP) OP##Checker
