@@ -1,10 +1,10 @@
-#include <msgcc/WrapperMsgUndef.h>
-#include <msgcc/MsgWrapper.h>
-#include <msgcc/FieldCtor.h>
+#include <msgcc/InterpretUndef.h>
+#include <msgcc/details/MsgWrapper.h>
+#include <msgcc/details/FieldCtor.h>
 #include <msgcc/base/NullPtr.h>
 
 ///////////////////////////////////////////////////////////////
-#define __def_msg_begin(TYPE)                   \
+#define __msgcc_begin(TYPE)                     \
 struct MSG_CTOR(TYPE)                           \
 {                                               \
     template<typename MSG, typename T = U16>    \
@@ -14,15 +14,8 @@ struct MSG_CTOR(TYPE)                           \
     {
 
 ///////////////////////////////////////////////////////////////
-#define __def_msg_end()                         \
+#define __msgcc_end()                           \
         if(__not_null(present)) *present = 1;   \
-    }                                           \
-    template<typename MSG>                      \
-    static bool construct(MSG& msg)             \
-    {                                           \
-        U32 present = 0;                        \
-        construct(msg, msg, &present);          \
-        return (1 == present);                  \
     }                                           \
 };
 

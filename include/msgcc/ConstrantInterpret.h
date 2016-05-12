@@ -1,14 +1,14 @@
 #include <msgcc/base/log.h>
-#include <msgcc/WrapperMsgUndef.h>
-#include <msgcc/InterpretCommon.h>
-#include <msgcc/FieldChecker.h>
+#include <msgcc/InterpretUndef.h>
+#include <msgcc/details/InterpretCommon.h>
+#include <msgcc/details/FieldChecker.h>
 
 
 #define FIELD_ERROR_CODE(NAME) ERROR::FIELD_ERROR_BASE(NAME) + errorBase
 #define MSG_ERROR_CODE(NAME)   ERROR::MSG_ERROR_BASE(NAME) + errorBase
 
 ///////////////////////////////////////////////////////////////
-#define __def_msg_begin(TYPE)                       \
+#define __msgcc_begin(TYPE)                         \
 struct MSG_CHECKER(TYPE)                            \
 {                                                   \
     typedef MSG_ERROR(TYPE) ERROR;                  \
@@ -22,7 +22,7 @@ struct MSG_CHECKER(TYPE)                            \
         U32 ret = 0;
 
 ///////////////////////////////////////////////////////////////
-#define __def_msg_end()                             \
+#define __msgcc_end()                               \
         return 0;                                   \
     }                                               \
 };

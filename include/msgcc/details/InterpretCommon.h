@@ -2,7 +2,7 @@
 #define H150BC06F_7AA5_4BAB_93E2_93B2583BCE30
 
 #include <msgcc/base/BaseTypes.h>
-#include <msgcc/MsgWrapper.h>
+#include <msgcc/details/MsgWrapper.h>
 
 ///////////////////////////////////////////////////////////////
 #define FIELD_ERROR_BASE(NAME) NAME##_ERROR_BASE

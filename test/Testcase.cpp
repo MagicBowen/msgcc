@@ -11,7 +11,7 @@ TEST(msgcc, should_omit_the_unpresent_part)
     msg.subMsg2Present = 0;
     msg.subMsg2.field1 = 4;
 
-    ASSERT_EQ(0, MSG_WRAPPER(SimpleMsg)::by(msg).verify());
+    ASSERT_EQ(0, Msgcc<SimpleMsg>::check(msg));
 }
 
 TEST(MagCc, should_return_the_error_code_correctly)
@@ -23,7 +23,7 @@ TEST(MagCc, should_return_the_error_code_correctly)
     msg.subMsg2Present = 1;
     msg.subMsg2.field1 = 2;
 
-    ASSERT_EQ(4, MSG_WRAPPER(SimpleMsg)::by(msg).verify());
+    ASSERT_EQ(4, Msgcc<SimpleMsg>::check(msg));
 }
 
 TEST(msgcc, should_verify_the_array_part_correctly)
@@ -36,14 +36,14 @@ TEST(msgcc, should_verify_the_array_part_correctly)
     msg.subMsg[0].field1 = 3;
     msg.subMsg[1].field1 = 0;
 
-    ASSERT_EQ(2, MSG_WRAPPER(FixArrayMsg)::by(msg).verify());
+    ASSERT_EQ(2, Msgcc<FixArrayMsg>::check(msg));
 }
 
 TEST(msgcc, should_construct_valid_simple_msg)
 {
     SimpleMsg msg;
 
-    ASSERT_TRUE(MSG_CTOR(SimpleMsg)::construct(msg));
+    Msgcc<SimpleMsg>::construct(msg);
 
     ASSERT_EQ(4, msg.field1);
     ASSERT_EQ(1, msg.subMsg1Present);
@@ -52,14 +52,14 @@ TEST(msgcc, should_construct_valid_simple_msg)
     ASSERT_EQ(1, msg.subMsg2Present);
     ASSERT_EQ(3, msg.subMsg2.field1);
 
-    ASSERT_EQ(0, MSG_WRAPPER(SimpleMsg)::by(msg).verify());
+    ASSERT_EQ(0, Msgcc<SimpleMsg>::check(msg));
 }
 
 TEST(msgcc, should_construct_valid_msg_with_array)
 {
     FixArrayMsg msg;
 
-    MSG_CTOR(FixArrayMsg)::construct(msg);
+    Msgcc<FixArrayMsg>::construct(msg);
 
     ASSERT_EQ(4, msg.field[0]);
     ASSERT_EQ(4, msg.field[1]);
@@ -67,120 +67,120 @@ TEST(msgcc, should_construct_valid_msg_with_array)
     ASSERT_EQ(3, msg.subMsg[0].field1);
     ASSERT_EQ(3, msg.subMsg[1].field1);
 
-    ASSERT_EQ(0, MSG_WRAPPER(FixArrayMsg)::by(msg).verify());
+    ASSERT_EQ(0, Msgcc<FixArrayMsg>::check(msg));
 }
 
 TEST(msgcc, should_verify_the_msg_with_dynamic_array)
 {
     DynArrayMsg msg;
 
-    MSG_CTOR(DynArrayMsg)::construct(msg);
+    Msgcc<DynArrayMsg>::construct(msg);
 
     msg.subMsg2[2].field1 = 1;
 
-    ASSERT_EQ(4, MSG_WRAPPER(DynArrayMsg)::by(msg).verify());
+    ASSERT_EQ(4, Msgcc<DynArrayMsg>::check(msg));
 }
 
 TEST(msgcc, should_omit_the_uncare_field)
 {
     OmitMsg msg;
 
-    MSG_CTOR(OmitMsg)::construct(msg);
+    Msgcc<OmitMsg>::construct(msg);
     ASSERT_EQ(0, msg.field2);
 
     msg.field2 = 5;
     msg.field3 = 5;
 
-    ASSERT_EQ(3, MSG_WRAPPER(OmitMsg)::by(msg).verify());
+    ASSERT_EQ(3, Msgcc<OmitMsg>::check(msg));
 }
 
 TEST(msgcc, should_omit_fields_when_switch_field_indicated_disable)
 {
     SwitchMsg msg;
 
-    MSG_CTOR(SwitchMsg)::construct(msg);
+    Msgcc<SwitchMsg>::construct(msg);
 
     ASSERT_EQ(1, msg.enable);
     ASSERT_EQ(1, msg.field2);
 
     msg.enable = 2;
-    ASSERT_EQ(1, MSG_WRAPPER(SwitchMsg)::by(msg).verify());
+    ASSERT_EQ(1, Msgcc<SwitchMsg>::check(msg));
 
     msg.enable = 1;
     msg.field2 = 2;
 
-    ASSERT_EQ(3, MSG_WRAPPER(SwitchMsg)::by(msg).verify());
+    ASSERT_EQ(3, Msgcc<SwitchMsg>::check(msg));
 }
 
 TEST(msgcc, should_verify_the_mixed_msg_ok)
 {
     MixMsg msg;
 
-    MSG_CTOR(MixMsg)::construct(msg);
+    Msgcc<MixMsg>::construct(msg);
 
     msg.present1 = 0;
     msg.sCfg.enable = 2;
 
-    ASSERT_EQ(0, MSG_WRAPPER(MixMsg)::by(msg).verify());
+    ASSERT_EQ(0, Msgcc<MixMsg>::check(msg));
 
     msg.present1 = 1;
     msg.sCfg.enable = 0;
     msg.nCfg.field1 = 5;
 
-    ASSERT_EQ(4, MSG_WRAPPER(MixMsg)::by(msg).verify());
+    ASSERT_EQ(4, Msgcc<MixMsg>::check(msg));
 }
 
 TEST(msgcc, should_verify_the_msg_with_OR_part)
 {
     OrMsg msg;
 
-    MSG_CTOR(OrMsg)::construct(msg);
+    Msgcc<OrMsg>::construct(msg);
 
     ASSERT_EQ(2, msg.field);
 
     msg.field = 255;
-    ASSERT_EQ(0, MSG_WRAPPER(OrMsg)::by(msg).verify());
+    ASSERT_EQ(0, Msgcc<OrMsg>::check(msg));
 }
 
 TEST(msgcc, should_verify_the_msg_with_user_defined_operation)
 {
     SpecialOpMsg msg;
 
-    MSG_CTOR(SpecialOpMsg)::construct(msg);
+    Msgcc<SpecialOpMsg>::construct(msg);
 
     ASSERT_EQ(10, msg.condition);
     ASSERT_EQ(10, msg.field);
 
     msg.field = 0;
 
-    ASSERT_EQ(2, MSG_WRAPPER(SpecialOpMsg)::by(msg).verify());
+    ASSERT_EQ(2, Msgcc<SpecialOpMsg>::check(msg));
 }
 
 TEST(msgcc, should_config_and_verify_the_requisite_msg)
 {
     RequestMsg msg;
 
-    MSG_CTOR(RequestMsg)::construct(msg);
+    Msgcc<RequestMsg>::construct(msg);
 
-    ASSERT_EQ(0, MSG_WRAPPER(RequestMsg)::by(msg).verify());
+    ASSERT_EQ(0, Msgcc<RequestMsg>::check(msg));
 
     msg.subMsg1.field1 = 4;
 
-    ASSERT_EQ(1, MSG_WRAPPER(RequestMsg)::by(msg).verify());
+    ASSERT_EQ(1, Msgcc<RequestMsg>::check(msg));
 }
 
 TEST(msgcc, should_config_and_verify_the_dynamic_rule_arr_cfg)
 {
     DynRuleArr msg;
 
-    MSG_CTOR(DynRuleArr)::construct(msg);
+    Msgcc<DynRuleArr>::construct(msg);
 
     ASSERT_EQ(0, msg.fields[0]);
     ASSERT_EQ(1, msg.fields[1]);
 
     msg.fields[0] = 4;
 
-    ASSERT_EQ(1, MSG_WRAPPER(DynRuleArr)::by(msg).verify());
+    ASSERT_EQ(1, Msgcc<DynRuleArr>::check(msg));
 }
 
 //////////////////////////////////////////////////////////////

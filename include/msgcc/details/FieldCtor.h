@@ -1,7 +1,7 @@
 #ifndef HD2933C2F_F099_4166_A33E_1BE2E4BBF729
 #define HD2933C2F_F099_4166_A33E_1BE2E4BBF729
 
-#include <msgcc/FieldOpCommon.h>
+#include <msgcc/details/FieldOpCommon.h>
 
 /////////////////////////////////////////////////
 #define FIELD_CTOR(OP) OP##Ctor

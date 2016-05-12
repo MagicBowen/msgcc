@@ -11,19 +11,19 @@
 #include <msgcc/ConstructInterpret.h>
 #include "WrapperMsgsMeta.h"
 
-#include <msgcc/WrapperMsgDef.h>
+#include <msgcc/Msgcc.h>
 
 const U8 ERROR_OFFSET = 1;
 
-__def_default_msg(SimpleMsg, ERROR_OFFSET);
-__def_default_msg(FixArrayMsg, ERROR_OFFSET);
-__def_default_msg(DynArrayMsg, ERROR_OFFSET);
-__def_default_msg(OmitMsg, ERROR_OFFSET);
-__def_default_msg(SwitchMsg, ERROR_OFFSET);
-__def_default_msg(MixMsg, ERROR_OFFSET);
-__def_default_msg(OrMsg, ERROR_OFFSET);
-__def_default_msg(SpecialOpMsg, ERROR_OFFSET);
-__def_default_msg(RequestMsg, ERROR_OFFSET);
-__def_default_msg(DynRuleArr, ERROR_OFFSET);
+__msgcc_implement(SimpleMsg, ERROR_OFFSET);
+__msgcc_implement(FixArrayMsg, ERROR_OFFSET);
+__msgcc_implement(DynArrayMsg, ERROR_OFFSET);
+__msgcc_implement(OmitMsg, ERROR_OFFSET);
+__msgcc_implement(SwitchMsg, ERROR_OFFSET);
+__msgcc_implement(MixMsg, ERROR_OFFSET);
+__msgcc_implement(OrMsg, ERROR_OFFSET);
+__msgcc_implement(SpecialOpMsg, ERROR_OFFSET);
+__msgcc_implement(RequestMsg, ERROR_OFFSET);
+__msgcc_implement(DynRuleArr, ERROR_OFFSET);
 
 #endif

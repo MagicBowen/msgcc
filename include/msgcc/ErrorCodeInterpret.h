@@ -1,14 +1,14 @@
-#include <msgcc/WrapperMsgUndef.h>
-#include <msgcc/InterpretCommon.h>
+#include <msgcc/InterpretUndef.h>
+#include <msgcc/details/InterpretCommon.h>
 
 ///////////////////////////////////////////////////////////////
-#define __def_msg_begin(TYPE)                       \
+#define __msgcc_begin(TYPE)                         \
 struct MSG_ERROR(TYPE)                              \
 {                                                   \
     enum{
 
 ///////////////////////////////////////////////////////////////
-#define __def_msg_end()                             \
+#define __msgcc_end()                               \
     MAX_ERROR_NUM    };                             \
 };
 
