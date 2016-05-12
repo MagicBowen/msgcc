@@ -1,15 +1,15 @@
 #ifndef HFC33001A_CA5F_442A_8E49_69371AAF3DF5
 #define HFC33001A_CA5F_442A_8E49_69371AAF3DF5
 
-#include "Msgs.h"
+#include "MsgDefs.h"
 #include <msgcc/ErrorCodeInterpret.h>
-#include "WrapperMsgsMeta.h"
+#include "MsgMeta.h"
 
 #include <msgcc/ConstrantInterpret.h>
-#include "WrapperMsgsMeta.h"
+#include "MsgMeta.h"
 
 #include <msgcc/ConstructInterpret.h>
-#include "WrapperMsgsMeta.h"
+#include "MsgMeta.h"
 
 #include <msgcc/Msgcc.h>
 

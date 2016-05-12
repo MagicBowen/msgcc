@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "WrapperMsgs.h"
+#include "MsgccImpls.h"
 
 
 TEST(msgcc, should_omit_the_unpresent_part)
