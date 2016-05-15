@@ -1,7 +1,7 @@
 #include <msgcc/InterpretUndef.h>
 #include <msgcc/details/MsgWrapper.h>
 #include <msgcc/details/FieldCtor.h>
-#include <msgcc/base/NullPtr.h>
+#include <ccinfra/core/NullPtr.h>
 
 ///////////////////////////////////////////////////////////////
 #define __msgcc_begin(TYPE)                     \
@@ -15,7 +15,7 @@ struct MSG_CTOR(TYPE)                           \
 
 ///////////////////////////////////////////////////////////////
 #define __msgcc_end()                           \
-        if(__not_null(present)) *present = 1;   \
+        if(__notnull__(present)) *present = 1;  \
     }                                           \
 };
 

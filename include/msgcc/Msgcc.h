@@ -1,7 +1,7 @@
 #ifndef HF538AD62_558E_4451_A5AC_34027940BD3D
 #define HF538AD62_558E_4451_A5AC_34027940BD3D
 
-#include <msgcc/base/BaseTypes.h>
+#include <ccinfra/base/Status.h>
 #include <msgcc/details/MsgWrapper.h>
 
 template <typename MSG>

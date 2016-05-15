@@ -1,4 +1,4 @@
-#include <msgcc/base/log.h>
+#include <ccinfra/log/log.h>
 #include <msgcc/InterpretUndef.h>
 #include <msgcc/details/InterpretCommon.h>
 #include <msgcc/details/FieldChecker.h>
