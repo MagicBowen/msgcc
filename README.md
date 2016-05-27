@@ -8,20 +8,15 @@
 
 To learn more, view the source code of tests of msgcc in the test folder, I think it's quite simple for learn and use!
 
-## Test and Install
-
-To test msgcc, you need install [gtest](https://github.com/google/googletest). Gtest do not support auto installation now, so you need compile gtest, and manually put the include folder and lib like below:
-
-> 1. Download gtest source code, and compile to generate the gtest library.
-> 2. Select a path for manually installation of gtest. For example choose to manually install gtest to folder "/home/shared", enter "/home/shared" and create a folder named "gtest";
-> 3. Copy the "gtest/incude" to "/home/shared/gtest", the folder will like "/home/shared/gtest/include/gtest";
-> 4. Copy the "libgtest.a" which you compiled out before to "/home/shared/gtest/lib"
-> 5. Now the path "/home/shared/gtest" will be your gtest root path.
+## Install and Test
 
 - Get msgcc
 
+msgcc depend on the ccinfra， as ccinfra is setted as the git submodule of msgcc, so you can update them together. 
+
 ~~~ bash
 git clone git@github.com:MagicBowen/msgcc.git
+git submodule update --init --recursive
 ~~~
 
 - Build msgcc
@@ -40,9 +35,17 @@ make
 sudo make install
 ~~~
 
-You can also install msgcc manually, just copy "msgcc/include" and "msgcc/build/src/libmsgcc.a" to your special installation path.
+msgcc will install the ccinfra to your system at the same time.
 
 - Test msgcc
+
+To test msgcc, you need install [gtest](https://github.com/google/googletest). Gtest do not support auto installation now, so you need compile gtest, and manually put the include folder and lib like below:
+
+> 1. Download gtest source code, and compile to generate the gtest library.
+> 2. Select a path for manually installation of gtest. For example choose to manually install gtest to folder "/home/shared", enter "/home/shared" and create a folder named "gtest";
+> 3. Copy the "gtest/incude" to "/home/shared/gtest", the folder will like "/home/shared/gtest/include/gtest";
+> 4. Copy the "libgtest.a" which you compiled out before to "/home/shared/gtest/lib"
+> 5. Now the path "/home/shared/gtest" will be your gtest root path.
 
 ~~~ bash
 cd build
