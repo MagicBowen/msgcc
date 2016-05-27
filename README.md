@@ -12,7 +12,7 @@ To learn more, view the source code of tests of msgcc in the test folder, I thin
 
 - Get msgcc
 
-msgcc depend on the ccinfra， as ccinfra is setted as the git submodule of msgcc, so you can update them together. 
+msgcc depends on the ccinfra， as ccinfra is setted as the git submodule of msgcc, so you can update them together. 
 
 ~~~ bash
 git clone git@github.com:MagicBowen/msgcc.git
