@@ -1,7 +1,7 @@
 #include <msgcc/InterpretUndef.h>
 #include <msgcc/details/MsgWrapper.h>
 #include <msgcc/details/FieldCtor.h>
-#include <ccinfra/core/NullPtr.h>
+#include <ccinfra/base/NullPtr.h>
 
 ///////////////////////////////////////////////////////////////
 #define __msgcc_begin(TYPE)                     \
